@@ -4,13 +4,6 @@ import random
 import os
 import sys
 
-# =================================================================
-# https://huggingface.co/SG161222/RealVisXL_V3.0/tree/main
-base_model_path = '/home/bingal/stable-diffusion-webui/models/Stable-diffusion/RealVisXL_V3.0.safetensors'
-
-# Download PhotoMaker from https://huggingface.co/TencentARC/PhotoMaker/tree/main
-photomaker_ckpt = '/home/bingal/PhotoMaker/model/photomaker-v1.bin'
-# =================================================================
 
 from diffusers.utils import load_image
 from diffusers import EulerDiscreteScheduler
@@ -21,9 +14,20 @@ import gradio as gr
 from pipeline import PhotoMakerStableDiffusionXLPipeline
 from style_template import styles
 
+
+
+# ===============================模型路径==================================
+# https://huggingface.co/SG161222/RealVisXL_V3.0/tree/main
+base_model_path = '/home/bingal/stable-diffusion-webui/models/Stable-diffusion/RealVisXL_V3.0.safetensors'
+
+# Download PhotoMaker from https://huggingface.co/TencentARC/PhotoMaker/tree/main
+photomaker_ckpt = '/home/bingal/PhotoMaker/model/photomaker-v1.bin'
+# ===============================模型路径==================================
+
+
+
+
 # global variable
-
-
 device = "cuda" if torch.cuda.is_available() else "cpu"
 MAX_SEED = np.iinfo(np.int32).max
 STYLE_NAMES = list(styles.keys())

@@ -4,17 +4,6 @@ import random
 import os
 import sys 
 
-# =================================================================
-# Download civitai models from https://civitai.com/models/84040/sdxl-unstable-diffusers-yamermix
-base_model_path = '/home/bingal/stable-diffusion-webui/models/Stable-diffusion/sdxlUnstableDiffusers_v11.safetensors'
-
-# https://huggingface.co/TencentARC/PhotoMaker/tree/main
-photomaker_ckpt = '/home/bingal/PhotoMaker/model/photomaker-v1.bin'
-
-# Download civitai models from https://civitai.com/models/124347/xlmoreart-full-xlreal-enhancer, and rename to xl_more_art-full.safetensors
-lora_path = '/home/bingal/stable-diffusion-webui/models/Lora/xl_more_art-full.safetensors'
-# =================================================================
-
 from diffusers.utils import load_image
 from diffusers import EulerAncestralDiscreteScheduler
 
@@ -23,6 +12,20 @@ import gradio as gr
 
 from pipeline import PhotoMakerStableDiffusionXLPipeline
 from style_template import styles
+
+
+
+# ===============================模型路径==================================
+# Download civitai models from https://civitai.com/models/84040/sdxl-unstable-diffusers-yamermix
+base_model_path = '/home/bingal/stable-diffusion-webui/models/Stable-diffusion/sdxlUnstableDiffusers_v11.safetensors'
+
+# https://huggingface.co/TencentARC/PhotoMaker/tree/main
+photomaker_ckpt = '/home/bingal/PhotoMaker/model/photomaker-v1.bin'
+
+# Download civitai models from https://civitai.com/models/124347/xlmoreart-full-xlreal-enhancer, and rename to xl_more_art-full.safetensors
+lora_path = '/home/bingal/stable-diffusion-webui/models/Lora/xl_more_art-full.safetensors'
+# ===============================模型路径==================================
+
 
 
 # global variable
