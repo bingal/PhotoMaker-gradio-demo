@@ -8,7 +8,7 @@ import sys
 from diffusers.utils import load_image
 from diffusers import EulerDiscreteScheduler
 
-import spaces
+# import spaces
 import gradio as gr
 
 from pipeline import PhotoMakerStableDiffusionXLPipeline
@@ -53,7 +53,7 @@ pipe.scheduler = EulerDiscreteScheduler.from_config(pipe.scheduler.config)
 pipe.set_adapters(["photomaker"], adapter_weights=[1.0])
 pipe.fuse_lora()
 
-@spaces.GPU(enable_queue=True)
+# @spaces.GPU(enable_queue=True)
 def generate_image(upload_images, prompt, negative_prompt, style_name, num_steps, style_strength_ratio, num_outputs, guidance_scale, seed, progress=gr.Progress(track_tqdm=True)):
     # check the trigger word
     image_token_id = pipe.tokenizer.convert_tokens_to_ids(pipe.trigger_word)

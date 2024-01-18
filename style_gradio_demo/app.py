@@ -7,7 +7,7 @@ import sys
 from diffusers.utils import load_image
 from diffusers import EulerAncestralDiscreteScheduler
 
-import spaces
+# import spaces
 import gradio as gr
 
 from pipeline import PhotoMakerStableDiffusionXLPipeline
@@ -57,7 +57,7 @@ pipe.set_adapters(["photomaker", "xl_more_art-full"], adapter_weights=[1.0, 0.5]
 pipe.fuse_lora()
 
 
-@spaces.GPU
+# @spaces.GPU
 def generate_image(upload_images, prompt, negative_prompt, style_name, num_steps, style_strength_ratio, num_outputs, guidance_scale, seed, progress=gr.Progress(track_tqdm=True)):
     # check the trigger word
     image_token_id = pipe.tokenizer.convert_tokens_to_ids(pipe.trigger_word)
